@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import Sibling from 'react-native-general-siblings';
+import RootSiblings from 'react-native-root-siblings';
 import Dialog from './components/Dialog';
 import type { DialogProps } from './type';
 
@@ -50,10 +50,10 @@ export default class PopupDialog extends Component<DialogProps, State> {
     this.destroyDialog();
   }
 
-  sibling: Sibling = null
+  sibling: RootSiblings = null
 
   createDialog() {
-    this.sibling = new Sibling(this.renderDialog());
+    this.sibling = new RootSiblings(this.renderDialog());
   }
 
   updateDialog() {

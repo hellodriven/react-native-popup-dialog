@@ -29,7 +29,6 @@
   "license": "MIT",
   "homepage": "https://github.com/jacklam718/react-native-popup-dialog/blob/master/README.md",
   "dependencies": {
-    "@types/react": "^16.9.55",
     "babel-plugin-flow-react-proptypes": "^9.1.1",
     "prop-types": "^15.6.0",
     "react-native-root-siblings": "^4.0.6"
@@ -58,7 +57,8 @@
     "react-dom": "^16.0.0",
     "react-native": "^0.60.0",
     "react-native-mock-render": "^0.0.26",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "@types/react": "^16.9.55"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",

@@ -5,25 +5,30 @@ import { StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import type { OverlayProps } from '../type';
 
 class Overlay extends Component<OverlayProps> {
-  static defaultProps = {
-    backgroundColor: '#000',
-    opacity: 0.5,
-    animationDuration: 2000,
-    visible: false,
-    useNativeDriver: true,
-    onPress: () => {},
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      backgroundColor: '#000',
+      opacity: 0.5,
+      animationDuration: 2000,
+      visible: false,
+      useNativeDriver: true,
+      onPress: () => { },
+    };
+  }
 
-  componentWillReceiveProps(nextProps: OverlayProps) {
-    const { visible, useNativeDriver, animationDuration: duration } = this.props;
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { visible, useNativeDriver, animationDuration: duration } = prevState;
     if (visible !== nextProps.visible) {
       const toValue = nextProps.visible ? nextProps.opacity : 0;
-      Animated.timing(this.opacity, {
+      Animated.timing(prevState.opacity, {
         toValue,
         duration,
         useNativeDriver,
       }).start();
     }
+
+    return nextProps;
   }
 
   opacity = new Animated.Value(0)

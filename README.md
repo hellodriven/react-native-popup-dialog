@@ -1,6 +1,9 @@
 ## HelloDriven React Native Popup Dialog
 We use this library in our app but the original library is not maintained. This fork makes the following changes:
 - Remove lifecycle warnings due to deprecated methods
+- Replace deprecated react-native-general-siblings with react-native-root-siblings
+
+Long term this git repo should be replaced with something else.
 
 Original Documentation below.
 

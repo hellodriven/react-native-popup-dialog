@@ -2,6 +2,12 @@
 [![npm](https://img.shields.io/npm/dm/react-native-popup-dialog.svg)]()
 [![npm](https://img.shields.io/npm/v/react-native-popup-dialog.svg)]()
 
+## HelloDriven React Native Popup Dialog
+We use this library in our app but the original library is not maintained. This fork makes the following changes:
+- Remove lifecycle warnings due to deprecated methods
+
+Original Documentation below.
+
 ## React Native Popup Dialog
 React Native Popup Dialog for iOS & Android.
 

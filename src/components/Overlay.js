@@ -9,7 +9,7 @@ class Overlay extends Component<OverlayProps> {
     super(props);
     this.state = {
       backgroundColor: '#000',
-      opacity: 0.5,
+      opacity: new Animated.Value(0),
       animationDuration: 2000,
       visible: false,
       useNativeDriver: true,
@@ -17,25 +17,22 @@ class Overlay extends Component<OverlayProps> {
     };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const { visible, useNativeDriver, animationDuration: duration } = prevState;
-    if (visible !== nextProps.visible) {
-      const toValue = nextProps.visible ? nextProps.opacity : 0;
-      Animated.timing(prevState.opacity, {
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { visible, useNativeDriver, animationDuration: duration } = prevProps;
+    if (visible !== this.props.visible) {
+      const toValue = this.props.visible ? this.props.opacity : 0;
+      Animated.timing(this.state.opacity, {
         toValue,
         duration,
         useNativeDriver,
       }).start();
     }
 
-    return nextProps;
   }
-
-  opacity = new Animated.Value(0)
 
   render() {
     const { onPress, pointerEvents, backgroundColor } = this.props;
-    const { opacity } = this;
+    const opacity = this.state.opacity
 
     return (
       <Animated.View

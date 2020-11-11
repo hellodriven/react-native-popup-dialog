@@ -54,10 +54,10 @@ const styles = StyleSheet.create({
 });
 
 type DialogState =
- | typeof DIALOG_OPENING
- | typeof DIALOG_OPENED
- | typeof DIALOG_CLOSING
- | typeof DIALOG_CLOSED
+  | typeof DIALOG_OPENING
+  | typeof DIALOG_OPENED
+  | typeof DIALOG_CLOSING
+  | typeof DIALOG_CLOSED
 
 type State = {
   dialogAnimation: FadeAnimation | ScaleAnimation | SlideAnimation;
@@ -77,14 +77,14 @@ class Dialog extends Component<DialogProps, State> {
     dialogAnimation: new FadeAnimation({ animationDuration: DEFAULT_ANIMATION_DURATION }),
     width: null,
     height: null,
-    onTouchOutside: () => {},
-    onHardwareBackPress: () => true,
+    onTouchOutside: () => { },
+    onHardwareBackPress: () => false,
     hasOverlay: true,
     overlayOpacity: 0.5,
     overlayPointerEvents: null,
     overlayBackgroundColor: '#000',
-    onShow: () => {},
-    onDismiss: () => {},
+    onShow: () => { },
+    onDismiss: () => { },
     actions: null,
     useNativeDriver: true,
   }
@@ -142,7 +142,7 @@ class Dialog extends Component<DialogProps, State> {
     return { width, height };
   }
 
-  setDialogState(toValue: number, callback?: Function = () => {}): void {
+  setDialogState(toValue: number, callback?: Function = () => { }): void {
     const { dialogAnimation } = this.state;
     const { animationDuration } = this.props;
     let dialogState = toValue ? DIALOG_OPENING : DIALOG_CLOSING;

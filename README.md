@@ -5,10 +5,16 @@ We use this library in our app but the original library is not maintained. This 
 
 Long term this git repo should be replaced with something else.
 
+When making changes to this repo don't forget to run 
+```
+yarn build
+```
+then push changes.
+
 To use
 ```
 yarn remove react-native-popup-dialog
-yarn add https://github.com/hellodriven/react-native-popup-dialog.git#REPLACE_ME_WITH_SHA
+yarn add https://github.com/hellodriven/react-native-popup-dialog.git#SHA/BRANCH
 ```
 
 Original Documentation below.
